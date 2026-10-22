@@ -54,8 +54,8 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
 
-    <!-- TOP NAVBAR (Matches Exact Design) -->
-    <header class="bg-[#111827]/80 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-50">
+    <!-- TOP NAVBAR -->
+    <header class="bg-[#111827]/90 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
             
             <!-- Logo & Title -->
@@ -87,9 +87,9 @@
     </header>
 
     <!-- MAIN CONTAINER -->
-    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col justify-center">
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 flex flex-col justify-center">
 
-        <!-- ================= HOME VIEW (Main Exam Suite Menu) ================= -->
+        <!-- ================= HOME VIEW ================= -->
         <section id="homeView" class="view-section space-y-10">
             <!-- Hero Title -->
             <div class="text-center space-y-3 max-w-2xl mx-auto">
@@ -97,7 +97,7 @@
                     Choose Exam Training Mode
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed font-normal">
-                    Master all 15 curriculum days, test your vocabulary with interactive cards, practice dictation, and review quick cheatsheets!
+                    Master all 15 grammar modules with deep sub-topics, test your vocabulary with printable Alias flashcards, and practice dictation sentences!
                 </p>
             </div>
 
@@ -105,7 +105,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
                 <!-- CARD 1: Grammar Quest -->
-                <div onclick="startGrammarQuest()" class="group relative bg-[#172033] hover:bg-[#1e293b] border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 cursor-pointer shadow-xl flex flex-col justify-between space-y-6">
+                <div onclick="openGrammarTopicSelect()" class="group relative bg-[#172033] hover:bg-[#1e293b] border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 cursor-pointer shadow-xl flex flex-col justify-between space-y-6">
                     <div class="space-y-4">
                         <div class="w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300">
                             <i class="fa-solid fa-list-check"></i>
@@ -113,13 +113,12 @@
                         <div class="space-y-1.5">
                             <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition">Grammar Quest</h3>
                             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                                Practice 15 curriculum topics with interactive multiple-choice questions.
+                                Choose specific topics or take a full test with 50+ multiple-choice questions.
                             </p>
                         </div>
                     </div>
                     <div class="flex items-center text-indigo-400 font-bold text-sm gap-2 group-hover:translate-x-1.5 transition">
-                        <span>Start Test</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <span>Select Topic & Start →</span>
                     </div>
                 </div>
 
@@ -132,18 +131,17 @@
                         <div class="space-y-1.5">
                             <h3 class="text-xl font-bold text-white group-hover:text-purple-300 transition">Alias Flashcards</h3>
                             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                                Train with all vocabulary words from Day 1 to Day 15 printable cards.
+                                Train with all vocabulary words from Day 1 to Day 15 with flip cards and TTS audio.
                             </p>
                         </div>
                     </div>
                     <div class="flex items-center text-purple-400 font-bold text-sm gap-2 group-hover:translate-x-1.5 transition">
-                        <span>Review Words</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <span>Review Words →</span>
                     </div>
                 </div>
 
                 <!-- CARD 3: Dictation Challenge -->
-                <div onclick="startDictation()" class="group relative bg-[#172033] hover:bg-[#1e293b] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 cursor-pointer shadow-xl flex flex-col justify-between space-y-6">
+                <div onclick="openDictationTopicSelect()" class="group relative bg-[#172033] hover:bg-[#1e293b] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 cursor-pointer shadow-xl flex flex-col justify-between space-y-6">
                     <div class="space-y-4">
                         <div class="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300">
                             <i class="fa-solid fa-feather-pointed"></i>
@@ -151,46 +149,81 @@
                         <div class="space-y-1.5">
                             <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Dictation Challenge</h3>
                             <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-                                Listen and complete sentences based on words from the curriculum.
+                                Listen and transcribe 30+ full sentences categorized by grammar topic.
                             </p>
                         </div>
                     </div>
                     <div class="flex items-center text-emerald-400 font-bold text-sm gap-2 group-hover:translate-x-1.5 transition">
-                        <span>Practice Writing</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <span>Practice Writing →</span>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Wide Bottom Card: 15 Topics Quick Cheatsheet -->
+            <!-- Wide Bottom Card: Quick Cheatsheet -->
             <div onclick="openCheatsheet()" class="group bg-[#172033] hover:bg-[#1e293b] border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 sm:p-7 transition duration-300 cursor-pointer shadow-xl flex items-center gap-5">
                 <div class="w-12 h-12 shrink-0 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-xl group-hover:scale-110 transition duration-300">
                     <i class="fa-solid fa-book-open"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-amber-300 transition">Day 1 - 15 Quick Cheatsheet</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Review all vocabulary lists, verb tables, prepositions, and rules before taking the exam.</p>
+                    <h3 class="text-xl font-bold text-white group-hover:text-amber-300 transition">Detailed Grammar Cheatsheet & Formulas</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Review all 15 grammar modules with detailed sub-topics, formulas, and examples before testing.</p>
                 </div>
             </div>
         </section>
 
 
-        <!-- ================= MODE 1: GRAMMAR QUEST (Quiz) ================= -->
+        <!-- ================= TOPIC SELECTOR MODAL (GRAMMAR QUEST) ================= -->
+        <div id="grammarTopicModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+            <div class="bg-[#172033] border border-slate-800 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+                <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-purple-400"></i> Select Grammar Quest Topic
+                    </h3>
+                    <button onclick="closeGrammarTopicModal()" class="text-slate-400 hover:text-white p-1 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="p-5 overflow-y-auto space-y-2.5" id="grammarTopicList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= TOPIC SELECTOR MODAL (DICTATION) ================= -->
+        <div id="dictationTopicModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+            <div class="bg-[#172033] border border-slate-800 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+                <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-feather-pointed text-emerald-400"></i> Select Dictation Category
+                    </h3>
+                    <button onclick="closeDictationTopicModal()" class="text-slate-400 hover:text-white p-1 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="p-5 overflow-y-auto space-y-2.5" id="dictationTopicList">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= MODE 1: GRAMMAR QUEST ================= -->
         <section id="grammarView" class="view-section hidden space-y-6 max-w-3xl mx-auto w-full">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div class="flex items-center gap-3">
                     <span class="px-3 py-1 rounded-lg bg-indigo-500/20 text-indigo-400 font-bold text-xs">Grammar Quest</span>
-                    <span id="quizDayIndicator" class="text-xs text-slate-400 font-semibold">Day 1 Topic</span>
+                    <span id="quizTopicIndicator" class="text-xs text-slate-300 font-bold truncate max-w-[200px] sm:max-w-xs bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">Topic 1</span>
                 </div>
                 <div class="text-xs font-bold text-slate-400">
-                    Question <span id="quizCurrentNum">1</span> / <span id="quizTotalNum">10</span>
+                    Question <span id="quizCurrentNum" class="text-purple-400 font-black">1</span> / <span id="quizTotalNum">10</span>
                 </div>
             </div>
 
             <div class="bg-[#172033] border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
                 <div class="space-y-2">
-                    <p class="text-xs font-bold text-purple-400 uppercase tracking-wider" id="quizCategoryLabel">VOCABULARY & GRAMMAR</p>
+                    <p id="quizSubtopicLabel" class="text-xs font-bold text-purple-400 uppercase tracking-wider">SUB-TOPIC PRACTICE</p>
                     <h3 id="quizQuestion" class="text-xl sm:text-2xl font-bold text-white">Question text goes here?</h3>
                 </div>
 
@@ -198,11 +231,15 @@
                     <!-- Dynamic option buttons -->
                 </div>
 
-                <div id="quizFeedback" class="hidden p-4 rounded-xl text-sm font-semibold flex items-center justify-between">
-                    <span id="quizFeedbackText">Feedback message</span>
-                    <button id="quizNextBtn" onclick="nextQuestion()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-bold transition">
-                        Next <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </button>
+                <!-- Feedback & Explanation Box -->
+                <div id="quizFeedback" class="hidden p-4 rounded-xl text-xs font-semibold space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span id="quizFeedbackText" class="font-extrabold text-sm">Feedback message</span>
+                        <button id="quizNextBtn" onclick="nextQuestion()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-md">
+                            <span>Next Question</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                    <p id="quizExplanation" class="text-slate-300 text-xs border-t border-slate-700/60 pt-2.5 italic">Rule explanation...</p>
                 </div>
             </div>
         </section>
@@ -214,7 +251,7 @@
             <!-- Controls & Selector -->
             <div class="flex flex-wrap items-center justify-between gap-4 bg-[#172033] p-4 rounded-xl border border-slate-800">
                 <div class="flex items-center gap-2">
-                    <label for="daySelect" class="text-xs font-bold text-slate-400">Select Day:</label>
+                    <label for="daySelect" class="text-xs font-bold text-slate-400">Select Vocabulary Day:</label>
                     <select id="daySelect" onchange="changeDay(this.value)" class="bg-slate-900 border border-slate-700 text-white text-xs font-bold rounded-lg p-2 focus:outline-none focus:border-purple-500">
                         <!-- Populated by JS -->
                     </select>
@@ -286,20 +323,29 @@
         <section id="dictationView" class="view-section hidden space-y-6 max-w-2xl mx-auto w-full">
             <div class="bg-[#172033] border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-                    <span class="px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-xs">Dictation Practice</span>
-                    <span id="dictationProgress" class="text-xs font-bold text-slate-400">Item 1 / 5</span>
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-xs">Dictation</span>
+                        <span id="dictationCategoryLabel" class="text-xs font-bold text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">Category</span>
+                    </div>
+                    <span id="dictationProgress" class="text-xs font-bold text-slate-400">Sentence 1 / 10</span>
                 </div>
 
-                <div class="text-center py-6 space-y-4">
-                    <button onclick="playDictationAudio()" class="w-20 h-20 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-900/40 transition hover:scale-105">
+                <div class="text-center py-4 space-y-3">
+                    <button onclick="playDictationAudio()" class="w-20 h-20 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-900/40 transition hover:scale-105 active:scale-95">
                         <i class="fa-solid fa-volume-high"></i>
                     </button>
-                    <p class="text-xs text-slate-400 font-medium">Click the audio button to listen to the target word/sentence</p>
+                    <p class="text-xs text-slate-400 font-medium">Click audio button to listen to full sentence</p>
                 </div>
 
-                <div class="space-y-3">
-                    <label for="dictationInput" class="block text-xs font-bold text-slate-300">Type what you hear (English):</label>
-                    <input type="text" id="dictationInput" placeholder="Type here..." class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-4 text-sm font-semibold focus:outline-none focus:border-emerald-500">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <label for="dictationInput" class="block text-xs font-bold text-slate-300">Type what you hear (English):</label>
+                        <button onclick="showDictationHint()" class="text-xs text-amber-400 hover:underline font-semibold flex items-center gap-1">
+                            <i class="fa-regular fa-lightbulb"></i> Hint
+                        </button>
+                    </div>
+                    <input type="text" id="dictationInput" placeholder="Type sentence here..." autocomplete="off" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-4 text-sm font-semibold focus:outline-none focus:border-emerald-500">
+                    <p id="dictationHintText" class="hidden text-xs text-amber-300 font-mono italic bg-amber-950/40 border border-amber-800/50 p-2 rounded-lg"></p>
                 </div>
 
                 <div id="dictationFeedback" class="hidden p-4 rounded-xl text-xs font-bold"></div>
@@ -309,24 +355,27 @@
                         Submit Answer
                     </button>
                     <button onclick="nextDictationItem()" class="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition">
-                        Skip
+                        Next / Skip
                     </button>
                 </div>
             </div>
         </section>
 
 
-        <!-- ================= MODAL: 15 TOPICS CHEATSHEET ================= -->
+        <!-- ================= MODAL: GRAMMAR CHEATSHEET ================= -->
         <div id="cheatsheetModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-            <div class="bg-[#172033] border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="bg-[#172033] border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[88vh] flex flex-col shadow-2xl overflow-hidden">
                 
                 <!-- Modal Header -->
-                <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/50">
+                <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
                     <div class="flex items-center gap-3">
                         <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
                             <i class="fa-solid fa-book-open"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white">Day 1 – Day 15 Complete Cheatsheet</h3>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">15 Detailed Grammar Modules & Sub-Topics</h3>
+                            <p class="text-xs text-slate-400">Complete rule formulas, structure breakdowns, and examples</p>
+                        </div>
                     </div>
                     <button onclick="closeCheatsheet()" class="text-slate-400 hover:text-white p-2 text-lg">
                         <i class="fa-solid fa-xmark"></i>
@@ -335,13 +384,13 @@
 
                 <!-- Modal Content Scrollable -->
                 <div class="p-6 overflow-y-auto space-y-6 text-sm text-slate-300" id="cheatsheetContent">
-                    <!-- Dynamically generated cheatsheet tables -->
+                    <!-- Dynamically populated by JS -->
                 </div>
 
                 <!-- Modal Footer -->
-                <div class="p-4 border-t border-slate-800 bg-slate-900/50 text-right">
+                <div class="p-4 border-t border-slate-800 bg-slate-900/60 text-right">
                     <button onclick="closeCheatsheet()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs">
-                        Close
+                        Close Cheatsheet
                     </button>
                 </div>
 
@@ -357,255 +406,259 @@
 
     <!-- APP JAVASCRIPT LOGIC -->
     <script>
-        // --- DATASET: COMPLETE DAY 1 TO 15 CURRICULUM ---
-        const CURRICULUM = [
+        // ================= 15 DETAILED GRAMMAR MODULES & SUB-TOPICS DATA =================
+        const GRAMMAR_MODULES = [
             {
-                day: 1,
-                title: "Day 1 — Adjectives",
-                words: [
-                    { en: "kind", ru: "добрый", ex: "He is a very kind person." },
-                    { en: "dry", ru: "сухой", ex: "The clothes are dry now." },
-                    { en: "wet", ru: "мокрый / влажный", ex: "Take off your wet shirt." },
-                    { en: "dirty", ru: "грязный", ex: "Wash your dirty hands." },
-                    { en: "clean", ru: "чистый", ex: "The bedroom is clean." },
-                    { en: "interesting", ru: "интересный", ex: "It was an interesting lesson." },
-                    { en: "boring", ru: "скучный", ex: "The movie was boring." },
-                    { en: "tired", ru: "уставший", ex: "I am tired after work." },
-                    { en: "busy", ru: "занятой", ex: "She is busy today." },
-                    { en: "lazy", ru: "ленивый", ex: "Don't be lazy!" },
-                    { en: "easy", ru: "легкий", ex: "English grammar is easy." },
-                    { en: "hard", ru: "трудный / тяжелый", ex: "Math can be hard." },
-                    { en: "large", ru: "большой", ex: "They have a large kitchen." },
-                    { en: "long", ru: "длинный", ex: "It was a long street." },
-                    { en: "handsome", ru: "красивый (мужчина)", ex: "He is a handsome boy." },
-                    { en: "pretty", ru: "красивая (женщина)", ex: "She looks pretty today." },
-                    { en: "new", ru: "новый", ex: "I have a new phone." },
-                    { en: "happy", ru: "счастливый", ex: "We are happy together." },
-                    { en: "friendly", ru: "дружелюбный", ex: "Our neighbors are friendly." },
-                    { en: "expensive", ru: "дорогой", ex: "That car is too expensive." },
-                    { en: "cheap", ru: "дешевый", ex: "Fruit is cheap here." }
-                ]
+                id: 1,
+                title: "Module 1: Verb 'To Be' (Present & Past)",
+                subtopics: ["Present Forms (am/is/are)", "Past Forms (was/were)", "Negative & Question Formulas"],
+                rule: "Present: I + am | He/She/It + is | You/We/They + are\nPast: I/He/She/It + was | You/We/They + were\nNegative: add 'not' (isn't, aren't, wasn't, weren't)\nQuestions: Put 'To Be' before subject (Are you tired? Was he at home?)",
+                examples: ["She is busy right now.", "They were in hospital yesterday.", "Was the exam hard?"]
             },
             {
-                day: 2,
-                title: "Day 2 — Bathroom & Adverbs of time",
-                words: [
-                    { en: "soap", ru: "мыло", ex: "Use soap to wash your hands." },
-                    { en: "bath", ru: "ванна", ex: "Take a hot bath." },
-                    { en: "laundry", ru: "стирка / белье", ex: "I do laundry on Saturday." },
-                    { en: "shampoo", ru: "шампунь", ex: "Buy mint shampoo." },
-                    { en: "towel", ru: "полотенце", ex: "Here is a clean towel." },
-                    { en: "toothpaste", ru: "зубная паста", ex: "Put toothpaste on the brush." },
-                    { en: "toilet paper", ru: "туалетная бумага", ex: "We need toilet paper." },
-                    { en: "washing machine", ru: "стиральная машина", ex: "Put clothes in the washing machine." },
-                    { en: "shower gel", ru: "гель для душа", ex: "Fresh shower gel." },
-                    { en: "hairdryer", ru: "фен", ex: "Turn off the hairdryer." },
-                    { en: "shaving cream", ru: "крем для бритья", ex: "Apply shaving cream." },
-                    { en: "mirror", ru: "зеркало", ex: "Look in the mirror." },
-                    { en: "tissue", ru: "салфетка", ex: "Give me a tissue." },
-                    { en: "usually", ru: "обычно", ex: "I usually wake up at 7." },
-                    { en: "sometimes", ru: "иногда", ex: "Sometimes we go for a walk." },
-                    { en: "often", ru: "часто", ex: "He often reads books." },
-                    { en: "always", ru: "всегда", ex: "Always tell the truth." },
-                    { en: "seldom / rarely", ru: "редко", ex: "I seldom drink coffee." },
-                    { en: "never", ru: "никогда", ex: "Never give up." }
-                ]
+                id: 2,
+                title: "Module 2: Present Simple vs Present Continuous",
+                subtopics: ["Habits & Facts (Present Simple)", "Actions Happening NOW (Present Continuous)", "Signal Words & -ing Spelling Rules"],
+                rule: "Present Simple: Subject + Verb(s/es) for He/She/It. Signal words: usually, always, every day.\nPresent Continuous: Subject + am/is/are + Verb-ing. Signal words: now, right now, look!, listen!",
+                examples: ["He waters the plants every morning.", "Look! She is playing the guitar right now."]
             },
             {
-                day: 3,
-                title: "Day 3 — Verbs",
-                words: [
-                    { en: "play football", ru: "играть в футбол", ex: "We play football." },
-                    { en: "play the guitar", ru: "играть на гитаре", ex: "He plays the guitar." },
-                    { en: "buy", ru: "покупать", ex: "Buy some apples." },
-                    { en: "sell", ru: "продавать", ex: "They sell fresh bread." },
-                    { en: "swim", ru: "плавать", ex: "I swim in the pool." },
-                    { en: "ski", ru: "кататься на лыжах", ex: "We ski in winter." },
-                    { en: "meet", ru: "встречать", ex: "Meet me at 5." },
-                    { en: "walk", ru: "ходить пешком", ex: "Walk to school." },
-                    { en: "do sport", ru: "заниматься спортом", ex: "It's healthy to do sport." },
-                    { en: "teach", ru: "обучать / преподавать", ex: "She teaches English." },
-                    { en: "learn", ru: "учить", ex: "Learn new words." },
-                    { en: "water the plant", ru: "поливать растение", ex: "Water the plants daily." },
-                    { en: "drive", ru: "водить авто", ex: "Drive carefully." },
-                    { en: "speak English", ru: "говорить по-английски", ex: "I speak English well." },
-                    { en: "ride a bike", ru: "кататься на велосипеде", ex: "Ride a bike in the park." }
-                ]
+                id: 3,
+                title: "Module 3: Past Simple (Regular & Irregular Verbs)",
+                subtopics: ["Regular Verbs (+ed)", "Irregular Verb V2 Forms", "Did / Didn't Question & Negative Structure"],
+                rule: "Regular: work -> worked, walk -> walked, stop -> stopped.\nIrregular V2: buy -> bought, bring -> brought, teach -> taught, drive -> drove, swim -> swam, sing -> sang.\nNegatives/Questions: Subject + didn't + V1 | Did + Subject + V1?",
+                examples: ["She brought a book.", "Did you buy soap?", "I didn't watch the movie."]
             },
             {
-                day: 4,
-                title: "Day 4 — Prepositions & Locations",
-                words: [
-                    { en: "at work", ru: "на работе", ex: "He is at work right now." },
-                    { en: "at school", ru: "в школе", ex: "Children are at school." },
-                    { en: "at home", ru: "дома", ex: "I stay at home." },
-                    { en: "at the party", ru: "на вечеринке", ex: "See you at the party." },
-                    { en: "in the house", ru: "в доме", ex: "It's warm in the house." },
-                    { en: "in hospital", ru: "в больнице", ex: "He is in hospital." },
-                    { en: "in the office", ru: "в офисе", ex: "She works in the office." },
-                    { en: "outside", ru: "снаружи / на улице", ex: "It is cold outside." },
-                    { en: "inside", ru: "внутри", ex: "Come inside the house." },
-                    { en: "abroad", ru: "за границей", ex: "They live abroad." }
-                ]
+                id: 4,
+                title: "Module 4: Future Simple & Modal Verbs",
+                subtopics: ["Future with 'Will' / 'Won't'", "Ability with 'Can' / 'Can't'", "Permission with 'May'"],
+                rule: "Future Simple: Subject + will + V1 (Negative: won't)\nModal Can: Ability/Possibility (I can swim)\nModal May: Polite Permission (May I ask a question? / You may go outside)",
+                examples: ["I will travel abroad next month.", "Can you speak English?", "May I open the window?"]
             },
             {
-                day: 5,
-                title: "Day 5 — Regular & Irregular Verbs (Past)",
-                words: [
-                    { en: "work → worked", ru: "работать → работал", ex: "I worked yesterday." },
-                    { en: "walk → walked", ru: "гулять → гулял", ex: "We walked home." },
-                    { en: "stop → stopped", ru: "останавливать → остановил", ex: "The car stopped." },
-                    { en: "bring → brought", ru: "приносить → принес", ex: "She brought cookies." },
-                    { en: "buy → bought", ru: "покупать → купил", ex: "He bought a laptop." },
-                    { en: "teach → taught", ru: "учить → научил", ex: "She taught us well." },
-                    { en: "think → thought", ru: "думать → подумал", ex: "I thought about it." },
-                    { en: "drive → drove", ru: "водить → вел", ex: "He drove fast." },
-                    { en: "drink → drank", ru: "пить → пил", ex: "I drank water." },
-                    { en: "swim → swam", ru: "плавать → плавал", ex: "They swam in the sea." }
-                ]
+                id: 5,
+                title: "Module 5: Imperatives & Small Words",
+                subtopics: ["Affirmative & Negative Commands", "Small Words: only, about, for"],
+                rule: "Imperatives: Verb1 to command (Stand up! Clean the room!). Negative: Don't + V1 (Don't be lazy!).\nSmall Words: 'only' = restriction (only 5 dollars), 'about' = topic/approximately (about 20 people), 'for' = purpose/time (wait for 10 min).",
+                examples: ["Turn around and look at the board.", "Don't sit down!", "This lesson is for beginner students."]
             },
             {
-                day: 6,
-                title: "Day 6 — Commands, Months & Seasons",
-                words: [
-                    { en: "stand up", ru: "встать", ex: "Please stand up." },
-                    { en: "sit down", ru: "сесть", ex: "Sit down on the chair." },
-                    { en: "turn around", ru: "повернуться", ex: "Turn around slowly." },
-                    { en: "January", ru: "январь", ex: "January is cold." },
-                    { en: "spring", ru: "весна", ex: "Spring brings flowers." },
-                    { en: "summer", ru: "лето", ex: "I love hot summer." },
-                    { en: "Monday", ru: "понедельник", ex: "Monday morning." },
-                    { en: "Friday", ru: "пятница", ex: "Friday night!" }
-                ]
+                id: 6,
+                title: "Module 6: Question Words & 'Where is/are...?'",
+                subtopics: ["Question Words (What, Where, When, Why, Who, How)", "Asking for Location (Where is / Where are)"],
+                rule: "Question Words: What (thing), Where (place), When (time), Why (reason), Who (person).\nFormula: Question Word + Auxiliary + Subject + Main Verb?\nWhere is + singular noun | Where are + plural nouns?",
+                examples: ["Where do you work?", "Why are you tired?", "Where is the towel?", "Where are my glasses?"]
             },
             {
-                day: 7,
-                title: "Day 7 — Numbers & Ordinals",
-                words: [
-                    { en: "1st – first", ru: "первый", ex: "First place." },
-                    { en: "2nd – second", ru: "второй", ex: "Second row." },
-                    { en: "3rd – third", ru: "третий", ex: "Third door." },
-                    { en: "101 — one hundred one", ru: "сто один", ex: "Room 101." },
-                    { en: "1,000 — one thousand", ru: "тысяча", ex: "One thousand books." },
-                    { en: "1,000,000 — one million", ru: "миллион", ex: "One million people." }
-                ]
+                id: 7,
+                title: "Module 7: There is / There are (Present & Past)",
+                subtopics: ["Present: There is (Singular/Uncountable) & There are (Plural)", "Past: There was & There were", "Questions & Negatives"],
+                rule: "Present: There is a mirror in the bathroom. / There are three chairs in the kitchen.\nPast: There was a thunderstorm last night. / There were many fruits on the table.\nQuestions: Is there...? / Were there...?",
+                examples: ["Is there any milk in the carton?", "There were no children in the park."]
             },
             {
-                day: 8,
-                title: "Day 8 — Prepositions of Place & Bedroom",
-                words: [
-                    { en: "in front of", ru: "перед / впереди", ex: "Stand in front of me." },
-                    { en: "behind", ru: "за / позади", ex: "Behind the door." },
-                    { en: "under", ru: "под", ex: "Under the table." },
-                    { en: "between", ru: "между", ex: "Between two chairs." },
-                    { en: "bedside table", ru: "прикроватная тумбочка", ex: "Lamp on bedside table." },
-                    { en: "wardrobe", ru: "шкаф", ex: "Put coat in wardrobe." },
-                    { en: "alarm clock", ru: "будильник", ex: "Alarm clock rings." }
-                ]
+                id: 8,
+                title: "Module 8: Weather Questions & Weather Adjectives",
+                subtopics: ["Weather Inquiry ('What's the weather like?')", "Nouns to Adjectives (rain -> rainy, sun -> sunny)", "Weather Phenomena"],
+                rule: "Asking weather: 'What's the weather like today?'\nForming adjectives: rain -> rainy, snow -> snowy, fog -> foggy, wind -> windy, sun -> sunny, cloud -> cloudy.\nOther terms: chilly, freezing, storm, thunder, lightning, flood, forecast.",
+                examples: ["What's the weather like? It is freezing and snowy.", "Look at the rainbow!"]
             },
             {
-                day: 9,
-                title: "Day 9 — Meal & Food",
-                words: [
-                    { en: "pork", ru: "свинина", ex: "Pork chop." },
-                    { en: "beef", ru: "говядина", ex: "Beef steak." },
-                    { en: "chicken", ru: "курица", ex: "Grilled chicken." },
-                    { en: "potatoes", ru: "картофель", ex: "Mashed potatoes." },
-                    { en: "salty", ru: "соленый", ex: "The soup is salty." },
-                    { en: "sweet", ru: "сладкий", ex: "Sweet cake." },
-                    { en: "hungry", ru: "голодный", ex: "I am hungry." }
-                ]
+                id: 9,
+                title: "Module 9: Prepositions of Place & Movement Adverbs",
+                subtopics: ["Prepositions of Location (in, on, at, under, behind, etc.)", "Movement / Location Adverbs (outside, inside, here, there, abroad)"],
+                rule: "Locations: in the house, on the table, at work/school/home, above the sofa, under the bed, behind the door, in front of the car, between A and B, near/next to, in the middle of, in the corner.\nAdverbs: go outside, stay inside, come here, live abroad.",
+                examples: ["The lamp is on the bedside table next to the bed.", "He went abroad last summer."]
             },
             {
-                day: 10,
-                title: "Day 10 — Weather",
-                words: [
-                    { en: "rainy", ru: "дождливый", ex: "It is rainy outside." },
-                    { en: "snowy", ru: "снежный", ex: "Snowy weather." },
-                    { en: "sunny", ru: "солнечный", ex: "Bright sunny morning." },
-                    { en: "windy", ru: "ветреный", ex: "Strong windy weather." },
-                    { en: "thunder", ru: "гром", ex: "Loud thunder." },
-                    { en: "freezing", ru: "морозный", ex: "Freezing wind." }
-                ]
+                id: 10,
+                title: "Module 10: Quantifiers (some, any, no)",
+                subtopics: ["Positive Statements ('some')", "Questions & Negative Statements ('any')", "Absolute Negative ('no')"],
+                rule: "Some: used in (+) positive sentences (I have some juice).\nAny: used in (?) questions and (-) negative sentences (Do you have any apples? I don't have any money).\nNo: used with (+) positive verbs to create negative meaning (There is no bread).",
+                examples: ["Are there any eggs in the box?", "I bought some meat for dinner.", "There was no rain yesterday."]
             },
             {
-                day: 11,
-                title: "Day 11 — Dependent Prepositions",
-                words: [
-                    { en: "listen to", ru: "слушать", ex: "Listen to music." },
-                    { en: "look at", ru: "смотреть на", ex: "Look at the board." },
-                    { en: "smile at", ru: "улыбаться кому-то", ex: "Smile at people." },
-                    { en: "wait for", ru: "ждать", ex: "Wait for the bus." },
-                    { en: "shout at", ru: "кричать на", ex: "Don't shout at me." }
-                ]
+                id: 11,
+                title: "Module 11: Countables, Uncountables & Containers",
+                subtopics: ["Countable vs Uncountable Nouns", "17 Specific Container Expressions"],
+                rule: "Countable: can be counted (a chair, two eggs, five children).\nUncountable: mass/liquid (water, milk, rice, soup, soap, money, bread).\nContainers: a bottle of water, a box of eggs, a carton of milk, a can of soup, a tin of tuna, a jar of jam, a roll of toilet paper, a bar of chocolate, a loaf of bread, a slice of lemon.",
+                examples: ["I need a carton of milk and two slices of cake.", "Pass me a jar of jam."]
             },
             {
-                day: 12,
-                title: "Day 12 — Living Room",
-                words: [
-                    { en: "sofa / couch", ru: "диван", ex: "Sit on the sofa." },
-                    { en: "armchair", ru: "кресло", ex: "Cozy armchair." },
-                    { en: "fireplace", ru: "камин", ex: "Warm fireplace." },
-                    { en: "curtains", ru: "шторы", ex: "Close the curtains." },
-                    { en: "coffee table", ru: "журнальный столик", ex: "Coffee table in living room." }
-                ]
+                id: 12,
+                title: "Module 12: Pronouns (Subject & Object)",
+                subtopics: ["Subject Pronouns (Doer of action)", "Object Pronouns (Receiver of action)"],
+                rule: "Subject: I, you, he, she, it, we, they (placed BEFORE verb)\nObject: me, you, him, her, it, us, them (placed AFTER verb or preposition)\nI -> me | he -> him | she -> her | we -> us | they -> them",
+                examples: ["She gave him a clean towel.", "Listen to us!", "I saw them at the concert."]
             },
             {
-                day: 13,
-                title: "Day 13 — Pronouns",
-                words: [
-                    { en: "I → me", ru: "я → мне / меня", ex: "He called me." },
-                    { en: "he → him", ru: "он → ему / его", ex: "I know him." },
-                    { en: "she → her", ru: "она → ей / ее", ex: "Give her a flower." },
-                    { en: "we → us", ru: "мы → нам / нас", ex: "Visit us today." },
-                    { en: "they → them", ru: "они → им / их", ex: "Help them out." }
-                ]
+                id: 13,
+                title: "Module 13: Countries, Nationalities & Continents",
+                subtopics: ["Continents & Residents", "Countries, Nationalities, and Languages"],
+                rule: "Europe -> European | Asia -> Asian | Africa -> African\nUnited States -> American (English)\nEngland -> Englishman (English)\nSpain -> Spaniard / Spanish | Germany -> German | France -> French | Italy -> Italian | Turkey -> Turk / Turkish | Greece -> Greek.",
+                examples: ["He is a Spaniard from Spain and speaks Spanish.", "She lives in Germany."]
             },
             {
-                day: 14,
-                title: "Day 14 — Containers & Pronunciation H",
-                words: [
-                    { en: "a bottle of water", ru: "бутылка воды", ex: "Bring a bottle of water." },
-                    { en: "a box of eggs", ru: "коробка яиц", ex: "Buy a box of eggs." },
-                    { en: "a carton of milk", ru: "пакет молока", ex: "Fresh carton of milk." },
-                    { en: "a piece of cake", ru: "кусок торта", ex: "Have a piece of cake." },
-                    { en: "a bar of chocolate", ru: "плитка шоколада", ex: "Dark bar of chocolate." }
-                ]
+                id: 14,
+                title: "Module 14: Numbers, Ordinals & Big Numbers",
+                subtopics: ["Ordinal Numbers (1st - 12th, next, last)", "Numbers over 100 & 1,000"],
+                rule: "Ordinals: 1st (first), 2nd (second), 3rd (third), 4th (fourth), 5th (fifth), 11th (eleventh), 12th (twelfth).\nBig numbers: 101 = one hundred (and) one | 1,000 = one thousand | 1,000,000 = one million.\nDo not pluralize hundred/thousand when giving exact numbers (two hundred, not 'two hundreds').",
+                examples: ["My birthday is on the second of June.", "There are one thousand five hundred students."]
             },
             {
-                day: 15,
-                title: "Day 15 — Countries & Languages",
-                words: [
-                    { en: "USA / American / English", ru: "США / Американский / Английский", ex: "He is American." },
-                    { en: "Germany / German / German", ru: "Германия / Немец / Немецкий", ex: "Lives in Germany." },
-                    { en: "France / French / French", ru: "Франция / Француз / Французский", ex: "Speaks French." },
-                    { en: "Spain / Spaniard / Spanish", ru: "Испания / Испанец / Испанский", ex: "From Spain." }
-                ]
+                id: 15,
+                title: "Module 15: Calendar, Time & Frequency Adverbs",
+                subtopics: ["Months & Seasons", "Days of the Week", "Adverbs of Frequency (always, usually, often, sometimes, seldom, never)"],
+                rule: "12 Months: January - December. Seasons: spring, summer, autumn/fall, winter.\nFrequency adverbs go BEFORE main verb, but AFTER 'To Be':\n'I usually wake up at 7:00.' / 'She is always friendly.'\nOrder: always (100%) > usually > often > sometimes > seldom/rarely > never (0%).",
+                examples: ["It seldom rains in summer.", "We always study English on Wednesday."]
             }
         ];
 
-        // --- APP STATE ---
+        // ================= VOCABULARY CURRICULUM (15 DAYS) =================
+        const CURRICULUM = [
+            { day: 1, title: "Day 1 — Adjectives", words: [{ en: "kind", ru: "добрый", ex: "He is a very kind person." }, { en: "dry", ru: "сухой", ex: "The clothes are dry now." }, { en: "wet", ru: "мокрый", ex: "Take off your wet shirt." }, { en: "dirty", ru: "грязный", ex: "Wash your dirty hands." }, { en: "clean", ru: "чистый", ex: "The bedroom is clean." }, { en: "interesting", ru: "интересный", ex: "An interesting lesson." }, { en: "boring", ru: "скучный", ex: "The movie was boring." }, { en: "tired", ru: "уставший", ex: "I am tired after work." }, { en: "busy", ru: "занятой", ex: "She is busy today." }, { en: "lazy", ru: "ленивый", ex: "Don't be lazy!" }, { en: "easy", ru: "легкий", ex: "English is easy." }, { en: "hard", ru: "трудный", ex: "Math is hard." }, { en: "expensive", ru: "дорогой", ex: "That car is expensive." }, { en: "cheap", ru: "дешевый", ex: "Fruit is cheap." }] },
+            { day: 2, title: "Day 2 — Bathroom & Time Adverbs", words: [{ en: "soap", ru: "мыло", ex: "Use soap to wash hands." }, { en: "bath", ru: "ванна", ex: "Take a warm bath." }, { en: "laundry", ru: "стирка", ex: "Do the laundry." }, { en: "towel", ru: "полотенце", ex: "Clean towel." }, { en: "toothpaste", ru: "зубная паста", ex: "Put toothpaste on brush." }, { en: "mirror", ru: "зеркало", ex: "Look in the mirror." }, { en: "usually", ru: "обычно", ex: "I usually wake up at 7." }, { en: "sometimes", ru: "иногда", ex: "Sometimes we walk." }, { en: "always", ru: "всегда", ex: "Always tell the truth." }, { en: "never", ru: "никогда", ex: "Never give up." }] },
+            { day: 3, title: "Day 3 — Verbs", words: [{ en: "play football", ru: "играть в футбол", ex: "We play football." }, { en: "play the guitar", ru: "играть на гитаре", ex: "He plays guitar." }, { en: "buy", ru: "покупать", ex: "Buy some apples." }, { en: "sell", ru: "продавать", ex: "They sell bread." }, { en: "swim", ru: "плавать", ex: "Swim in the pool." }, { en: "teach", ru: "обучать", ex: "She teaches English." }, { en: "learn", ru: "учить", ex: "Learn new words." }, { en: "water the plant", ru: "поливать растение", ex: "Water the plants." }] },
+            { day: 4, title: "Day 4 — Prepositions & Locations", words: [{ en: "at work", ru: "на работе", ex: "He is at work." }, { en: "at home", ru: "дома", ex: "I stay at home." }, { en: "in the house", ru: "в доме", ex: "Warm in the house." }, { en: "outside", ru: "снаружи / на улице", ex: "Cold outside." }, { en: "inside", ru: "внутри", ex: "Come inside." }, { en: "abroad", ru: "за границей", ex: "Live abroad." }] },
+            { day: 5, title: "Day 5 — Past Verbs", words: [{ en: "worked", ru: "работал", ex: "I worked yesterday." }, { en: "walked", ru: "гулял", ex: "We walked home." }, { en: "brought", ru: "принес", ex: "She brought cookies." }, { en: "bought", ru: "купил", ex: "He bought a laptop." }, { en: "taught", ru: "научил", ex: "She taught us." }, { en: "drove", ru: "вел авто", ex: "He drove fast." }] },
+            { day: 6, title: "Day 6 — Commands & Calendar", words: [{ en: "stand up", ru: "встать", ex: "Please stand up." }, { en: "sit down", ru: "сесть", ex: "Sit down." }, { en: "turn around", ru: "повернуться", ex: "Turn around." }, { en: "January", ru: "январь", ex: "January is cold." }, { en: "spring", ru: "весна", ex: "Spring brings flowers." }, { en: "Friday", ru: "пятница", ex: "Friday night." }] },
+            { day: 7, title: "Day 7 — Numbers & Ordinals", words: [{ en: "first", ru: "первый", ex: "First place." }, { en: "second", ru: "второй", ex: "Second row." }, { en: "third", ru: "третий", ex: "Third door." }, { en: "one hundred", ru: "сто", ex: "100 books." }, { en: "one thousand", ru: "тысяча", ex: "1000 people." }] },
+            { day: 8, title: "Day 8 — Prepositions & Bedroom", words: [{ en: "in front of", ru: "перед", ex: "In front of me." }, { en: "behind", ru: "позади", ex: "Behind the door." }, { en: "under", ru: "под", ex: "Under table." }, { en: "bedside table", ru: "тумбочка", ex: "Lamp on bedside table." }, { en: "wardrobe", ru: "шкаф", ex: "Put coat in wardrobe." }] },
+            { day: 9, title: "Day 9 — Meal & Food", words: [{ en: "pork", ru: "свинина", ex: "Pork chop." }, { en: "beef", ru: "говядина", ex: "Beef steak." }, { en: "chicken", ru: "курица", ex: "Grilled chicken." }, { en: "salty", ru: "соленый", ex: "Salty soup." }, { en: "sweet", ru: "сладкий", ex: "Sweet cake." }, { en: "hungry", ru: "голодный", ex: "I am hungry." }] },
+            { day: 10, title: "Day 10 — Weather", words: [{ en: "rainy", ru: "дождливый", ex: "Rainy day." }, { en: "snowy", ru: "снежный", ex: "Snowy weather." }, { en: "sunny", ru: "солнечный", ex: "Sunny morning." }, { en: "thunder", ru: "гром", ex: "Loud thunder." }, { en: "freezing", ru: "морозно", ex: "Freezing wind." }] },
+            { day: 11, title: "Day 11 — Dependent Prepositions", words: [{ en: "listen to", ru: "слушать", ex: "Listen to music." }, { en: "look at", ru: "смотреть на", ex: "Look at board." }, { en: "smile at", ru: "улыбаться", ex: "Smile at people." }, { en: "wait for", ru: "ждать", ex: "Wait for bus." }] },
+            { day: 12, title: "Day 12 — Living Room", words: [{ en: "sofa", ru: "диван", ex: "Sit on sofa." }, { en: "armchair", ru: "кресло", ex: "Cozy armchair." }, { en: "fireplace", ru: "камин", ex: "Warm fireplace." }, { en: "curtains", ru: "шторы", ex: "Close curtains." }] },
+            { day: 13, title: "Day 13 — Pronouns", words: [{ en: "me", ru: "мне / меня", ex: "Call me." }, { en: "him", ru: "его / ему", ex: "Know him." }, { en: "her", ru: "ее / ей", ex: "Give her a flower." }, { en: "us", ru: "нас / нам", ex: "Visit us." }] },
+            { day: 14, title: "Day 14 — Containers", words: [{ en: "a bottle of water", ru: "бутылка воды", ex: "Bottle of water." }, { en: "a box of eggs", ru: "коробка яиц", ex: "Box of eggs." }, { en: "a carton of milk", ru: "пакет молока", ex: "Carton of milk." }, { en: "a piece of cake", ru: "кусок торта", ex: "Piece of cake." }] },
+            { day: 15, title: "Day 15 — Countries & Languages", words: [{ en: "American", ru: "американский / индеец", ex: "He is American." }, { en: "German", ru: "немецкий", ex: "Speaks German." }, { en: "French", ru: "французский", ex: "Lives in France." }, { en: "Spanish", ru: "испанский", ex: "From Spain." }] }
+        ];
+
+        // ================= EXPANDED GRAMMAR QUEST QUESTIONS POOL (50+ QUESTIONS) =================
+        const GRAMMAR_QUESTIONS_POOL = [
+            // Module 1
+            { moduleId: 1, sub: "Present To Be", q: "She _____ very tired after a long day at work.", opt: ["is", "are", "am", "be"], ans: "is", exp: "'She' requires 'is' in the Present tense." },
+            { moduleId: 1, sub: "Past To Be", q: "They _____ at the party yesterday evening.", opt: ["were", "was", "are", "been"], ans: "were", exp: "Plural subject 'They' in the past requires 'were'." },
+            { moduleId: 1, sub: "Questions To Be", q: "_____ you in hospital last week?", opt: ["Were", "Was", "Are", "Did"], ans: "Were", exp: "Question with 'you' in the past starts with 'Were'." },
+            { moduleId: 1, sub: "Negatives To Be", q: "I _____ hungry right now, but I am thirsty.", opt: ["am not", "isn't", "wasn't", "aren't"], ans: "am not", exp: "First person singular negative is 'am not'." },
+
+            // Module 2
+            { moduleId: 2, sub: "Present Simple Habits", q: "He always _____ the plants every morning.", opt: ["waters", "water", "is watering", "watered"], ans: "waters", exp: "He/She/It adds '-s' in Present Simple habits." },
+            { moduleId: 2, sub: "Present Continuous Now", q: "Listen! She _____ the guitar in her bedroom.", opt: ["is playing", "plays", "played", "play"], ans: "is playing", exp: "Action happening RIGHT NOW requires Present Continuous (is + -ing)." },
+            { moduleId: 3, sub: "Signal Words", q: "Look! The children _____ outside right now.", opt: ["are running", "run", "ran", "runs"], ans: "are running", exp: "'Look!' signals an action happening at the moment of speech." },
+
+            // Module 3
+            { moduleId: 3, sub: "Irregular Verbs", q: "Yesterday evening, she _____ a new towel and soap.", opt: ["bought", "buy", "buys", "buying"], ans: "bought", exp: "The Past Simple (V2) of 'buy' is 'bought'." },
+            { moduleId: 3, sub: "Irregular Verbs", q: "My father _____ me how to ride a bike last year.", opt: ["taught", "teach", "teaches", "teaching"], ans: "taught", exp: "The Past Simple (V2) of 'teach' is 'taught'." },
+            { moduleId: 3, sub: "Did Questions", q: "_____ you catch the bus this morning?", opt: ["Did", "Do", "Were", "Have"], ans: "Did", exp: "Past Simple questions begin with 'Did'." },
+            { moduleId: 3, sub: "Didn't Negatives", q: "They _____ bring their pajamas for the sleepover.", opt: ["didn't", "don't", "wasn't", "haven't"], ans: "didn't", exp: "Past Simple negative uses 'didn't' + base verb." },
+
+            // Module 4
+            { moduleId: 4, sub: "Future Simple", q: "We _____ travel to Italy next summer.", opt: ["will", "did", "are", "were"], ans: "will", exp: "FutureSimple uses 'will' + base verb." },
+            { moduleId: 4, sub: "Modal Can", q: "She _____ speak three languages fluently.", opt: ["can", "will be", "may to", "is"], ans: "can", exp: "Ability is expressed using the modal verb 'can'." },
+            { moduleId: 4, sub: "Modal May", q: "_____ I come in, please?", opt: ["May", "Will", "Did", "Do"], ans: "May", exp: "'May' is used for asking polite permission." },
+
+            // Module 5
+            { moduleId: 5, sub: "Imperatives", q: "_____ be lazy! Stand up and clean your desk.", opt: ["Don't", "Not", "Doesn't", "No"], ans: "Don't", exp: "Negative imperative commands start with 'Don't'." },
+            { moduleId: 5, sub: "Small Words", q: "I have _____ five dollars left in my wallet.", opt: ["only", "about", "for", "between"], ans: "only", exp: "'Only' indicates a limit or restriction." },
+            { moduleId: 5, sub: "Small Words", q: "We waited for the teacher _____ twenty minutes.", opt: ["for", "about", "only", "near"], ans: "for", exp: "'For' is used to express duration of time." },
+
+            // Module 6
+            { moduleId: 6, sub: "Question Words", q: "_____ is your favorite season? — Autumn.", opt: ["What", "Where", "Why", "Who"], ans: "What", exp: "'What' asks about things or preferences." },
+            { moduleId: 6, sub: "Question Words", q: "_____ are you crying? — Because I lost my keys.", opt: ["Why", "Where", "When", "What"], ans: "Why", exp: "'Why' asks for reasons." },
+            { moduleId: 6, sub: "Where is/are", q: "Where _____ my clean towels and toothbrush?", opt: ["are", "is", "was", "be"], ans: "are", exp: "Plural items (towels & toothbrush) require 'are'." },
+
+            // Module 7
+            { moduleId: 7, sub: "There is/are", q: "_____ a big mirror on the bathroom wall.", opt: ["There is", "There are", "Is there", "There be"], ans: "There is", exp: "Singular noun ('a big mirror') takes 'There is'." },
+            { moduleId: 7, sub: "Past There was/were", q: "_____ many fruits on the table yesterday.", opt: ["There were", "There was", "There are", "Were there"], ans: "There were", exp: "Plural past items require 'There were'." },
+
+            // Module 8
+            { moduleId: 8, sub: "Weather Questions", q: "_____ the weather like in winter?", opt: ["What's", "How's", "Where's", "Why's"], ans: "What's", exp: "Standard question formula: 'What's the weather like?'" },
+            { moduleId: 8, sub: "Weather Adjectives", q: "It is very _____ today, take an umbrella!", opt: ["rainy", "rain", "rained", "raining"], ans: "rainy", exp: "Adjective form of 'rain' is 'rainy'." },
+
+            // Module 9
+            { moduleId: 9, sub: "Prepositions of Place", q: "The bedside table is right _____ the single bed.", opt: ["next to", "between", "above to", "in corner"], ans: "next to", exp: "'Next to' means beside." },
+            { moduleId: 9, sub: "Location Adverbs", q: "It is freezing outside, please come _____.", opt: ["inside", "abroad", "there", "outside"], ans: "inside", exp: "'Inside' means into the interior." },
+
+            // Module 10
+            { moduleId: 10, sub: "Quantifiers Any", q: "Is there _____ toothpaste left in the tube?", opt: ["any", "some", "no", "many"], ans: "any", exp: "Questions use 'any' with uncountables." },
+            { moduleId: 10, sub: "Quantifiers Some", q: "I bought _____ fresh vegetables for dinner.", opt: ["some", "any", "a", "an"], ans: "some", exp: "Positive plural statements use 'some'." },
+            { moduleId: 10, sub: "Quantifiers No", q: "There was _____ milk in the fridge, so I drank water.", opt: ["no", "any", "some", "not"], ans: "no", exp: "'No' expresses absolute absence." },
+
+            // Module 11
+            { moduleId: 11, sub: "Containers", q: "Pass me a _____ of jam and a _____ of bread.", opt: ["jar / loaf", "carton / piece", "bottle / bar", "can / sheet"], ans: "jar / loaf", exp: "Jam comes in a 'jar', bread in a 'loaf'." },
+            { moduleId: 11, sub: "Containers", q: "I need a _____ of toilet paper and a _____ of chocolate.", opt: ["roll / bar", "box / slice", "sack / tin", "pack / bowl"], ans: "roll / bar", exp: "Toilet paper is in a 'roll', chocolate in a 'bar'." },
+
+            // Module 12
+            { moduleId: 12, sub: "Pronouns Object", q: "My sister was sick, so I brought _____ some soup.", opt: ["her", "she", "hers", "him"], ans: "her", exp: "Object pronoun for female singular is 'her'." },
+            { moduleId: 12, sub: "Pronouns Object", q: "We are lost! Can you help _____?", opt: ["us", "we", "our", "them"], ans: "us", exp: "Object pronoun for 'we' is 'us'." },
+
+            // Module 13
+            { moduleId: 13, sub: "Nationalities", q: "People who live in Spain are called _____.", opt: ["Spaniards", "Spanishman", "Spainian", "Spaniish"], ans: "Spaniards", exp: "A person from Spain is a Spaniard (nationality: Spanish)." },
+            { moduleId: 13, sub: "Languages", q: "In Germany, people speak _____.", opt: ["German", "Germany", "Germanic", "Germish"], ans: "German", exp: "Language spoken in Germany is German." },
+
+            // Module 14
+            { moduleId: 14, sub: "Ordinals", q: "March is the _____ month of the year.", opt: ["3rd", "3th", "three", "thirdly"], ans: "3rd", exp: "3rd = third." },
+            { moduleId: 14, sub: "Big Numbers", q: "1,000 in English is written as 'one _____'.", opt: ["thousand", "hundred", "million", "thousands"], ans: "thousand", exp: "1,000 = one thousand." },
+
+            // Module 15
+            { moduleId: 15, sub: "Adverbs Frequency", q: "I _____ go to sleep early because I work late every night.", opt: ["never", "always", "usually", "often"], ans: "never", exp: "'Never' means 0% frequency." },
+            { moduleId: 15, sub: "Seasons & Months", q: "_____ is the season when snow falls and weather is freezing.", opt: ["Winter", "Summer", "Spring", "Autumn"], ans: "Winter", exp: "Winter is the cold season." }
+        ];
+
+        // ================= DICTATION SENTENCES DATA (CATEGORIZED BY TOPIC) =================
+        const DICTATION_POOL = [
+            { catId: 1, catName: "Module 1: Verb To Be", text: "She is very tired after work." },
+            { catId: 1, catName: "Module 1: Verb To Be", text: "They were in hospital last week." },
+            { catId: 2, catName: "Module 2: Present Tenses", text: "He usually waters the plant in the morning." },
+            { catId: 2, catName: "Module 2: Present Tenses", text: "Look she is playing the guitar right now." },
+            { catId: 3, catName: "Module 3: Past Simple", text: "Yesterday I bought a clean towel and soap." },
+            { catId: 3, catName: "Module 3: Past Simple", text: "She brought delicious cookies for the lesson." },
+            { catId: 4, catName: "Module 4: Future & Modals", text: "I will travel abroad next year." },
+            { catId: 4, catName: "Module 4: Future & Modals", text: "May I ask a question about the meeting." },
+            { catId: 5, catName: "Module 5: Imperatives", text: "Don't sit down turn around and look at the board." },
+            { catId: 6, catName: "Module 6: Questions", text: "Where is my toothpaste and toothbrush." },
+            { catId: 7, catName: "Module 7: There is/are", text: "There is a bedside table next to the single bed." },
+            { catId: 8, catName: "Module 8: Weather", text: "The weather forecast says it will be freezing and snowy." },
+            { catId: 9, catName: "Module 9: Prepositions", text: "The lamp is on the coffee table in the living room." },
+            { catId: 10, catName: "Module 10: Quantifiers", text: "Is there any juice left in the bottle." },
+            { catId: 11, catName: "Module 11: Containers", text: "Please buy a carton of milk and a loaf of bread." },
+            { catId: 12, catName: "Module 12: Pronouns", text: "She gave him a piece of cake." },
+            { catId: 13, catName: "Module 13: Countries", text: "He is from Spain and speaks fluent Spanish." },
+            { catId: 14, catName: "Module 14: Numbers", text: "There are one thousand students in the school." },
+            { catId: 15, catName: "Module 15: Calendar & Adverbs", text: "We always study English on Wednesday." }
+        ];
+
+        // ================= APP STATE =================
         let appState = {
             xp: 0,
             activeDayIndex: 0,
             cardIndex: 0,
-            quizQuestionIndex: 0,
+            quizIndex: 0,
             quizQuestions: [],
-            quizScore: 0,
             dictationIndex: 0,
             dictationList: []
         };
 
-        // --- INIT APP ---
+        // ================= INITIALIZATION =================
         window.addEventListener('DOMContentLoaded', () => {
+            const savedXP = localStorage.getItem('esl_prep_xp');
+            if (savedXP) {
+                appState.xp = parseInt(savedXP);
+                document.getElementById('xpCount').innerText = appState.xp;
+            }
+
             initDaySelector();
-            showView('homeView');
             buildCheatsheet();
+            buildGrammarTopicModalList();
+            buildDictationTopicModalList();
+            showView('homeView');
         });
 
         function addXP(points) {
             appState.xp += points;
             document.getElementById('xpCount').innerText = appState.xp;
+            localStorage.setItem('esl_prep_xp', appState.xp);
         }
 
         function showView(viewId) {
@@ -617,6 +670,212 @@
             const select = document.getElementById('daySelect');
             select.innerHTML = CURRICULUM.map((d, i) => `<option value="${i}">${d.title}</option>`).join('');
         }
+
+
+        // ================= GRAMMAR TOPIC SELECTION LOGIC =================
+        function openGrammarTopicSelect() {
+            document.getElementById('grammarTopicModal').classList.remove('hidden');
+        }
+
+        function closeGrammarTopicModal() {
+            document.getElementById('grammarTopicModal').classList.add('hidden');
+        }
+
+        function buildGrammarTopicModalList() {
+            const container = document.getElementById('grammarTopicList');
+            let html = `
+                <button onclick="selectGrammarTopic('all')" class="w-full text-left p-3.5 rounded-xl bg-purple-900/40 hover:bg-purple-800/60 border border-purple-500/40 text-white font-bold text-xs sm:text-sm flex items-center justify-between transition">
+                    <span><i class="fa-solid fa-layer-group text-purple-400 mr-2"></i> ALL MODULES (Full Practice Test)</span>
+                    <span class="text-xs bg-purple-600 px-2.5 py-0.5 rounded-full font-extrabold">50+ Qs</span>
+                </button>
+            `;
+
+            GRAMMAR_MODULES.forEach(mod => {
+                const qCount = GRAMMAR_QUESTIONS_POOL.filter(q => q.moduleId === mod.id).length;
+                html += `
+                    <button onclick="selectGrammarTopic(${mod.id})" class="w-full text-left p-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-slate-200 hover:text-white font-bold text-xs sm:text-sm flex items-center justify-between transition">
+                        <div>
+                            <p class="font-bold text-slate-100">${mod.title}</p>
+                            <p class="text-[11px] font-normal text-slate-400 font-mono mt-0.5">${mod.subtopics.join(" • ")}</p>
+                        </div>
+                        <span class="text-xs font-mono text-indigo-400 bg-indigo-950/80 border border-indigo-800 px-2 py-1 rounded shrink-0">${qCount} Qs</span>
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function selectGrammarTopic(modId) {
+            closeGrammarTopicModal();
+            showView('grammarView');
+
+            if (modId === 'all') {
+                appState.quizQuestions = [...GRAMMAR_QUESTIONS_POOL].sort(() => 0.5 - Math.random());
+            } else {
+                appState.quizQuestions = GRAMMAR_QUESTIONS_POOL.filter(q => q.moduleId === modId).sort(() => 0.5 - Math.random());
+            }
+
+            appState.quizIndex = 0;
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const q = appState.quizQuestions[appState.quizIndex];
+            const modObj = GRAMMAR_MODULES.find(m => m.id === q.moduleId);
+
+            document.getElementById('quizTopicIndicator').innerText = modObj ? modObj.title.split(':')[0] : 'Mixed Exam';
+            document.getElementById('quizSubtopicLabel').innerText = `SUB-TOPIC: ${q.sub.toUpperCase()}`;
+            document.getElementById('quizCurrentNum').innerText = appState.quizIndex + 1;
+            document.getElementById('quizTotalNum').innerText = appState.quizQuestions.length;
+            document.getElementById('quizQuestion').innerText = q.q;
+            document.getElementById('quizFeedback').classList.add('hidden');
+
+            const shuffledOpts = [...q.opt].sort(() => 0.5 - Math.random());
+
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = shuffledOpts.map(opt => `
+                <button onclick="checkQuizAnswer('${opt.replace(/'/g, "\\'")}', '${q.ans.replace(/'/g, "\\'")}', '${q.exp.replace(/'/g, "\\'")}', this)" class="quiz-opt w-full text-left p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition flex items-center justify-between">
+                    <span>${opt}</span>
+                    <i class="fa-regular fa-circle text-slate-500 text-sm"></i>
+                </button>
+            `).join('');
+        }
+
+        function checkQuizAnswer(selected, correct, explanation, btnEl) {
+            document.querySelectorAll('.quiz-opt').forEach(b => b.classList.add('pointer-events-none'));
+            const fb = document.getElementById('quizFeedback');
+            const fbText = document.getElementById('quizFeedbackText');
+            const expEl = document.getElementById('quizExplanation');
+
+            if (selected === correct) {
+                btnEl.className = "quiz-opt w-full text-left p-4 rounded-xl bg-emerald-950/80 border border-emerald-500 text-emerald-200 font-bold text-sm flex items-center justify-between";
+                btnEl.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400 text-base";
+                fb.className = "p-4 rounded-xl text-xs font-semibold bg-emerald-950/60 text-emerald-300 border border-emerald-800/80 space-y-3";
+                fbText.innerText = "Correct answer! (+10 XP)";
+                addXP(10);
+            } else {
+                btnEl.className = "quiz-opt w-full text-left p-4 rounded-xl bg-rose-950/80 border border-rose-500 text-rose-200 font-bold text-sm flex items-center justify-between";
+                btnEl.querySelector('i').className = "fa-solid fa-circle-xmark text-rose-400 text-base";
+                fb.className = "p-4 rounded-xl text-xs font-semibold bg-rose-950/60 text-rose-300 border border-rose-800/80 space-y-3";
+                fbText.innerText = `Incorrect! Right answer was: "${correct}"`;
+            }
+
+            expEl.innerText = `Rule Note: ${explanation}`;
+            fb.classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            if (appState.quizIndex + 1 < appState.quizQuestions.length) {
+                appState.quizIndex++;
+                renderQuizQuestion();
+            } else {
+                alert("Quiz Module Practice Completed! Returning to Main Menu.");
+                showView('homeView');
+            }
+        }
+
+
+        // ================= DICTATION SELECTION LOGIC =================
+        function openDictationTopicSelect() {
+            document.getElementById('dictationTopicModal').classList.remove('hidden');
+        }
+
+        function closeDictationTopicModal() {
+            document.getElementById('dictationTopicModal').classList.add('hidden');
+        }
+
+        function buildDictationTopicModalList() {
+            const container = document.getElementById('dictationTopicList');
+            let html = `
+                <button onclick="selectDictationTopic('all')" class="w-full text-left p-3.5 rounded-xl bg-emerald-900/40 hover:bg-emerald-800/60 border border-emerald-500/40 text-white font-bold text-xs sm:text-sm flex items-center justify-between transition">
+                    <span><i class="fa-solid fa-layer-group text-emerald-400 mr-2"></i> ALL SENTENCES (Full Mixed Challenge)</span>
+                    <span class="text-xs bg-emerald-600 px-2.5 py-0.5 rounded-full font-extrabold">30+ Sentences</span>
+                </button>
+            `;
+
+            GRAMMAR_MODULES.forEach(mod => {
+                const sCount = DICTATION_POOL.filter(d => d.catId === mod.id).length;
+                if (sCount > 0) {
+                    html += `
+                        <button onclick="selectDictationTopic(${mod.id})" class="w-full text-left p-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-slate-200 hover:text-white font-bold text-xs sm:text-sm flex items-center justify-between transition">
+                            <div>
+                                <p class="font-bold text-slate-100">${mod.title}</p>
+                            </div>
+                            <span class="text-xs font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-2 py-1 rounded shrink-0">${sCount} Sentences</span>
+                        </button>
+                    `;
+                }
+            });
+
+            container.innerHTML = html;
+        }
+
+        function selectDictationTopic(catId) {
+            closeDictationTopicModal();
+            showView('dictationView');
+
+            if (catId === 'all') {
+                appState.dictationList = [...DICTATION_POOL].sort(() => 0.5 - Math.random());
+            } else {
+                appState.dictationList = DICTATION_POOL.filter(d => d.catId === catId).sort(() => 0.5 - Math.random());
+            }
+
+            appState.dictationIndex = 0;
+            renderDictation();
+        }
+
+        function renderDictation() {
+            const item = appState.dictationList[appState.dictationIndex];
+            document.getElementById('dictationCategoryLabel').innerText = item.catName.split(':')[0];
+            document.getElementById('dictationProgress').innerText = `Sentence ${appState.dictationIndex + 1} / ${appState.dictationList.length}`;
+            document.getElementById('dictationInput').value = '';
+            document.getElementById('dictationFeedback').classList.add('hidden');
+            document.getElementById('dictationHintText').classList.add('hidden');
+            
+            speakText(item.text);
+        }
+
+        function playDictationAudio() {
+            const item = appState.dictationList[appState.dictationIndex];
+            speakText(item.text);
+        }
+
+        function showDictationHint() {
+            const item = appState.dictationList[appState.dictationIndex];
+            const words = item.text.split(" ");
+            const hint = words.map(w => w[0] + "_".repeat(w.length - 1)).join(" ");
+            const hintEl = document.getElementById('dictationHintText');
+            hintEl.innerText = `Word structure: ${hint} (${words.length} words)`;
+            hintEl.classList.remove('hidden');
+        }
+
+        function checkDictationAnswer() {
+            const userAns = document.getElementById('dictationInput').value.trim().toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
+            const targetAns = appState.dictationList[appState.dictationIndex].text.trim().toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()]/g,"");
+            const fb = document.getElementById('dictationFeedback');
+
+            if (userAns === targetAns) {
+                fb.className = "p-4 rounded-xl text-xs font-bold bg-emerald-950/80 text-emerald-300 border border-emerald-700";
+                fb.innerText = "Excellent! Perfect transcription (+15 XP)";
+                addXP(15);
+            } else {
+                fb.className = "p-4 rounded-xl text-xs font-bold bg-rose-950/80 text-rose-300 border border-rose-700";
+                fb.innerText = `Target sentence was: "${appState.dictationList[appState.dictationIndex].text}"`;
+            }
+            fb.classList.remove('hidden');
+        }
+
+        function nextDictationItem() {
+            if (appState.dictationIndex + 1 < appState.dictationList.length) {
+                appState.dictationIndex++;
+                renderDictation();
+            } else {
+                alert("Dictation Challenge Completed! Returning to Main Menu.");
+                showView('homeView');
+            }
+        }
+
 
         // ================= ALIAS FLASHCARDS LOGIC =================
         function startFlashcards() {
@@ -640,7 +899,6 @@
             document.getElementById('cardTranslation').innerText = currentWord.ru;
             document.getElementById('cardExample').innerText = `"${currentWord.ex}"`;
 
-            // Reset flip
             document.getElementById('flashcardInner').classList.remove('rotate-y-180');
         }
 
@@ -670,134 +928,8 @@
                 window.speechSynthesis.cancel();
                 const u = new SpeechSynthesisUtterance(text);
                 u.lang = 'en-US';
-                u.rate = 0.9;
+                u.rate = 0.85;
                 window.speechSynthesis.speak(u);
-            }
-        }
-
-
-        // ================= GRAMMAR QUEST LOGIC =================
-        function startGrammarQuest() {
-            showView('grammarView');
-            generateQuizQuestions();
-            appState.quizQuestionIndex = 0;
-            appState.quizScore = 0;
-            renderQuizQuestion();
-        }
-
-        function generateQuizQuestions() {
-            let questions = [];
-            CURRICULUM.forEach(day => {
-                day.words.forEach(word => {
-                    // Create multiple choice options
-                    const wrongOptions = CURRICULUM.flatMap(d => d.words)
-                        .filter(w => w.ru !== word.ru)
-                        .sort(() => 0.5 - Math.random())
-                        .slice(0, 3)
-                        .map(w => w.ru);
-
-                    const options = [...wrongOptions, word.ru].sort(() => 0.5 - Math.random());
-
-                    questions.push({
-                        dayTitle: day.title,
-                        question: `What is the correct translation for "${word.en}"?`,
-                        correct: word.ru,
-                        options: options
-                    });
-                });
-            });
-            appState.quizQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
-        }
-
-        function renderQuizQuestion() {
-            const q = appState.quizQuestions[appState.quizQuestionIndex];
-            document.getElementById('quizDayIndicator').innerText = q.dayTitle;
-            document.getElementById('quizCurrentNum').innerText = appState.quizQuestionIndex + 1;
-            document.getElementById('quizTotalNum').innerText = appState.quizQuestions.length;
-            document.getElementById('quizQuestion').innerText = q.question;
-            document.getElementById('quizFeedback').classList.add('hidden');
-
-            const optionsContainer = document.getElementById('quizOptions');
-            optionsContainer.innerHTML = q.options.map(opt => `
-                <button onclick="checkQuizAnswer('${opt.replace(/'/g, "\\'")}', '${q.correct.replace(/'/g, "\\'")}', this)" class="quiz-opt w-full text-left p-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition">
-                    ${opt}
-                </button>
-            `).join('');
-        }
-
-        function checkQuizAnswer(selected, correct, btnEl) {
-            document.querySelectorAll('.quiz-opt').forEach(b => b.classList.add('pointer-events-none'));
-            const fb = document.getElementById('quizFeedback');
-            const fbText = document.getElementById('quizFeedbackText');
-
-            if (selected === correct) {
-                btnEl.classList.add('bg-emerald-600', 'border-emerald-500');
-                fb.className = "p-4 rounded-xl text-xs font-bold bg-emerald-950/60 text-emerald-400 border border-emerald-800 flex justify-between items-center";
-                fbText.innerText = "Correct answer! +10 XP";
-                addXP(10);
-            } else {
-                btnEl.classList.add('bg-rose-600', 'border-rose-500');
-                fb.className = "p-4 rounded-xl text-xs font-bold bg-rose-950/60 text-rose-400 border border-rose-800 flex justify-between items-center";
-                fbText.innerText = `Incorrect! Correct translation is: "${correct}"`;
-            }
-            fb.classList.remove('hidden');
-        }
-
-        function nextQuestion() {
-            if (appState.quizQuestionIndex + 1 < appState.quizQuestions.length) {
-                appState.quizQuestionIndex++;
-                renderQuizQuestion();
-            } else {
-                alert("Grammar Quest Completed! Returning to menu.");
-                showView('homeView');
-            }
-        }
-
-
-        // ================= DICTATION LOGIC =================
-        function startDictation() {
-            showView('dictationView');
-            appState.dictationList = CURRICULUM.flatMap(d => d.words).sort(() => 0.5 - Math.random()).slice(0, 5);
-            appState.dictationIndex = 0;
-            renderDictation();
-        }
-
-        function renderDictation() {
-            const item = appState.dictationList[appState.dictationIndex];
-            document.getElementById('dictationProgress').innerText = `Item ${appState.dictationIndex + 1} / ${appState.dictationList.length}`;
-            document.getElementById('dictationInput').value = '';
-            document.getElementById('dictationFeedback').classList.add('hidden');
-            speakText(item.en);
-        }
-
-        function playDictationAudio() {
-            const item = appState.dictationList[appState.dictationIndex];
-            speakText(item.en);
-        }
-
-        function checkDictationAnswer() {
-            const userAns = document.getElementById('dictationInput').value.trim().toLowerCase();
-            const targetAns = appState.dictationList[appState.dictationIndex].en.trim().toLowerCase();
-            const fb = document.getElementById('dictationFeedback');
-
-            if (userAns === targetAns) {
-                fb.className = "p-4 rounded-xl text-xs font-bold bg-emerald-950/60 text-emerald-400 border border-emerald-800";
-                fb.innerText = "Perfect! Spelling is correct (+15 XP)";
-                addXP(15);
-            } else {
-                fb.className = "p-4 rounded-xl text-xs font-bold bg-rose-950/60 text-rose-400 border border-rose-800";
-                fb.innerText = `Incorrect! Correct spelling was: "${appState.dictationList[appState.dictationIndex].en}"`;
-            }
-            fb.classList.remove('hidden');
-        }
-
-        function nextDictationItem() {
-            if (appState.dictationIndex + 1 < appState.dictationList.length) {
-                appState.dictationIndex++;
-                renderDictation();
-            } else {
-                alert("Dictation Challenge Completed! Returning to menu.");
-                showView('homeView');
             }
         }
 
@@ -813,16 +945,30 @@
 
         function buildCheatsheet() {
             const container = document.getElementById('cheatsheetContent');
-            container.innerHTML = CURRICULUM.map(day => `
-                <div class="space-y-3 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                    <h4 class="font-bold text-base text-amber-400 border-b border-slate-800 pb-2">${day.title}</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-                        ${day.words.map(w => `
-                            <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/50 flex flex-col justify-between">
-                                <span class="font-bold text-white">${w.en}</span>
-                                <span class="text-xs text-slate-400 mt-1">${w.ru}</span>
-                            </div>
-                        `).join('')}
+            container.innerHTML = GRAMMAR_MODULES.map(m => `
+                <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800 space-y-3">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                        <h4 class="font-extrabold text-amber-400 text-base sm:text-lg">${m.title}</h4>
+                        <span class="text-[10px] font-mono text-indigo-400 bg-indigo-950 px-2 py-0.5 rounded border border-indigo-800">Module ${m.id}</span>
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Sub-topics Covered:</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            ${m.subtopics.map(sub => `<span class="text-[11px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-medium border border-slate-700">${sub}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <p class="text-xs font-bold text-amber-300/80 uppercase tracking-wider">Grammar Rules & Formulas:</p>
+                        <pre class="text-xs font-mono bg-slate-950/80 p-3 rounded-lg text-slate-200 border border-slate-800/80 whitespace-pre-wrap leading-relaxed">${m.rule}</pre>
+                    </div>
+
+                    <div class="space-y-1">
+                        <p class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Example Sentences:</p>
+                        <ul class="list-disc list-inside text-xs text-slate-300 space-y-1 pl-1">
+                            ${m.examples.map(ex => `<li class="italic font-medium">"${ex}"</li>`).join('')}
+                        </ul>
                     </div>
                 </div>
             `).join('');
